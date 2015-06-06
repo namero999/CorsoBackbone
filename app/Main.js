@@ -1,12 +1,18 @@
 log = console.log.bind(console);
 
-var todo = new Todo({title: "Fare da mangiare", done: false});
+$(function() {
 
-var todoList = new TodoList([
-    {title: "Fare da mangiare", done: false},
-    {title: "Pulire", done: false}
-]);
+    var todoList = new TodoList([
+        {title: "Fare da mangiare", done: false},
+        {title: "Pulire", done: false}
+    ]);
 
+    var todoListView = new TodoListView({
+        collection: todoList
+    });
 
+    todoListView.render();
 
-log('Application started');
+    log('Application started');
+
+});
