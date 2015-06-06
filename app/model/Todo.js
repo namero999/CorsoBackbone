@@ -2,7 +2,7 @@ Todo = Backbone.Model.extend({
 
     initialize: function() {
         this.on('change', this.onChange);
-        log("Todo created. Title: " + this.get('title'));
+        log('Todo created. Title: ' + this.get('title'));
     },
 
     onChange: function() {
