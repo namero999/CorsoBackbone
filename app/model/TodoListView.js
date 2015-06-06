@@ -13,8 +13,15 @@ TodoListView = Backbone.View.extend({
     },
 
     render: function() {
+
+        this.collection.each(function(model) {
+            this.onAdd(model);
+        }, this);
+
         $('body').append(this.$el);
+
         return this;
+
     }
 
 });
