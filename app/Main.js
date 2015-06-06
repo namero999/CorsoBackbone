@@ -1,10 +1,12 @@
 log = console.log.bind(console);
 
-var todo1 = new Todo({title: "Fare da mangiare", done: true});
-todo1.set('title', 'Un altro titolo111');
-todo1.set('done', true);
+var todo = new Todo({title: "Fare da mangiare", done: false});
 
-var todo2 = new Todo({title: "Pulire casa", done: false});
-todo2.set('title', 'Un altro titolo222');
+var todoList = new TodoList([
+    {title: "Fare da mangiare", done: false},
+    {title: "Pulire", done: false}
+]);
+
+
 
 log('Application started');
