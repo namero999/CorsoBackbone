@@ -7,7 +7,7 @@
 <body>
 
 <script type="text/template" id="todoTemplate">
-    <input type="checkbox"/><span><%= title %></span>
+    <input type="checkbox" <% if(done) { %> checked <% } %>/><span><%- title %></span>
 </script>
 
 <script type="application/javascript" src="lib/jquery.js"></script>
