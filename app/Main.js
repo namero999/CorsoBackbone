@@ -5,6 +5,10 @@ var todoList = new TodoList([
     {title: "Pulire", done: false}
 ]);
 
+new InputView({
+    collection: todoList
+}).render();
+
 var todoListView = new TodoListView({
     collection: todoList
 });
