@@ -2,27 +2,23 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title></title>
-    <script type="application/javascript" src="lib/jquery.js"></script>
-    <script type="application/javascript" src="lib/underscore.js"></script>
-    <script type="application/javascript" src="lib/backbone.js"></script>
-    <script type="application/javascript" src="app/model/Todo.js"></script>
-    <script type="application/javascript" src="app/model/TodoList.js"></script>
-    <script type="application/javascript" src="app/model/TodoView.js"></script>
-    <script type="application/javascript" src="app/model/InputView.js"></script>
-    <script type="application/javascript" src="app/model/TodoListView.js"></script>
+    <title>Todo List app</title>
 </head>
 <body>
 
-<!--<ul>
-        <li><input type="checkbox"/><span>Fare da mangiare</span></li>
-        <li><input type="checkbox"/><span>Pulire</span></li>
-    </ul>-->
-
 <script type="text/template" id="todoTemplate">
-    <li><input type="checkbox"/><span></span></li>
+    <input type="checkbox"/><span><%= title %></span>
 </script>
 
+<script type="application/javascript" src="lib/jquery.js"></script>
+<script type="application/javascript" src="lib/underscore.js"></script>
+<script type="application/javascript" src="lib/backbone.js"></script>
+<script type="application/javascript" src="app/model/Todo.js"></script>
+<script type="application/javascript" src="app/model/TodoList.js"></script>
+<script type="application/javascript" src="app/model/TodoView.js"></script>
+<script type="application/javascript" src="app/model/InputView.js"></script>
+<script type="application/javascript" src="app/model/TodoListView.js"></script>
 <script type="application/javascript" src="app/Main.js"></script>
+
 </body>
 </html>
