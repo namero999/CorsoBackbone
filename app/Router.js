@@ -2,7 +2,20 @@ Router = Backbone.Router.extend({
 
     routes: {
         '': 'main',
-        'edit/:id': 'edit'
+        'edit/:id': 'edit',
+        'about': 'about'
+    },
+
+    about: function() {
+        _.each(currentViews, function(view) {
+            view.remove();
+        });
+
+        var aboutView = new AboutView();
+
+        $('body').append(aboutView.render().el);
+
+        currentViews = [aboutView];
     },
 
     main: function() {

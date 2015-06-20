@@ -7,10 +7,16 @@
 </head>
 <body>
 
+<a href="#about">About...</a><br/>
+
 <script type="text/template" id="todoTemplate">
     <input type="checkbox" <% if(done) { %> checked <% } %>/><span><%- title %></span>
     <img class="delete" src="https://cdn2.iconfinder.com/data/icons/vaga/trash.png"/>
     <img class="edit"   src="http://docs.colabolo.com/docs/download/attachments/2065185/icon_edit_small.png"/>
+</script>
+
+<script type="text/template" id="aboutTemplate">
+    <h1>About</h1>
 </script>
 
 <script type="application/javascript" src="lib/jquery.js"></script>
@@ -25,6 +31,7 @@
 <script type="application/javascript" src="app/model/TodoTotView.js"></script>
 <script type="application/javascript" src="app/model/TodoTotDoneView.js"></script>
 <script type="application/javascript" src="app/model/TodoEditView.js"></script>
+<script type="application/javascript" src="app/model/AboutView.js"></script>
 <script type="application/javascript" src="app/Router.js"></script>
 <script type="application/javascript" src="app/Main.js"></script>
 

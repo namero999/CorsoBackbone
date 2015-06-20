@@ -18,7 +18,7 @@ InputView = Backbone.View.extend({
     },
 
     render: function() {
-        $('body').prepend(this.el);
+        $('body').append(this.el);
         return this;
     }
 
