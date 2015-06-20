@@ -5,7 +5,7 @@ TodoTotDoneView = Backbone.View.extend({
     initialize: function() {
         log('TodoTotView created');
 
-        this.listenTo(this.collection, 'change', this.render);
+        this.listenTo(this.collection, 'change add remove', this.render);
     },
 
     render: function() {
@@ -19,6 +19,3 @@ TodoTotDoneView = Backbone.View.extend({
     }
 
 });
-
-
-

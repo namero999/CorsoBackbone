@@ -9,7 +9,13 @@ TodoView = Backbone.View.extend({
     },
 
     events: {
-        'change input': 'onDone'
+        'change input': 'onDone',
+        'click img': 'onDelete'
+    },
+
+    onDelete: function() {
+        this.model.collection.remove(this.model);
+        this.remove();
     },
 
     onDone: function(e) {
