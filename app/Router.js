@@ -7,7 +7,11 @@ Router = Backbone.Router.extend({
 
     main: function() {
 
-        new InputView({
+        _.each(currentViews, function(view) {
+            view.remove();
+        });
+
+        var inputView = new InputView({
             collection: todoList
         }).render();
 
@@ -19,20 +23,33 @@ Router = Backbone.Router.extend({
         var todoTotDoneView = new TodoTotDoneView({
             collection: todoList
         });
-        $body.append(todoTotDoneView.render().$el);
+        $body.append(todoTotDoneView.render().el);
 
         var todoListView = new TodoListView({
             collection: todoList
         });
 
-        todoListView.render();
+        $('body').append(todoListView.render().el);
+
+        currentViews = [inputView, todoTotView, todoTotDoneView, todoListView];
 
     },
 
     edit: function(id) {
+
+        _.each(currentViews, function(view) {
+            view.remove();
+        });
+
         log('Route edit ' + id);
 
-        log(todoList.get(id));
+        var todoEditView = new TodoEditView({
+            model: todoList.get(id)
+        });
+
+        $('body').append(todoEditView.render().el);
+
+        currentViews = [todoEditView];
 
     }
 

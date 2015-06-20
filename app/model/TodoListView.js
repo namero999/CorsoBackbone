@@ -19,8 +19,6 @@ TodoListView = Backbone.View.extend({
             this.onAdd(model);
         }, this);
 
-        $('body').append(this.$el);
-
         return this;
 
     }

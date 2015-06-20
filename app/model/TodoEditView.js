@@ -1,7 +1,16 @@
 TodoEditView = Backbone.View.extend({
 
-    initialize: function() {
+    tagName: 'input',
+    className: 'pippo',
 
+    initialize: function() {
+        log('TodoEditView initialize');
+    },
+
+    render: function() {
+        log('TodoEditView render');
+        this.$el.val(this.model.attributes.title);
+        return this;
     }
 
 });
