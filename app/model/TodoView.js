@@ -10,7 +10,12 @@ TodoView = Backbone.View.extend({
 
     events: {
         'change input': 'onDone',
-        'click img': 'onDelete'
+        'click img.delete': 'onDelete',
+        'click img.edit': 'onEdit'
+    },
+
+    onEdit: function() {
+        router.navigate('edit/' + this.model.id, {trigger: true});
     },
 
     onDelete: function() {

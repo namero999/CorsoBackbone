@@ -12,7 +12,7 @@ InputView = Backbone.View.extend({
 
     onEnter: function(event) {
         if (event.keyCode == 13) {
-            this.collection.add({title: this.$el.val(), done: false});
+            this.collection.add({title: this.$el.val(), done: false, id: generateId()});
             this.$el.val('');
         }
     },
