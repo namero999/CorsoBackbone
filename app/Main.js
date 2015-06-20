@@ -1,4 +1,5 @@
 log = console.log.bind(console);
+$body = $('body');
 
 log('Application started');
 
@@ -21,13 +22,12 @@ todoListView.render();
 var todoTotView = new TodoTotView({
     collection: todoList
 });
-$('body').append(todoTotView.render().el);
+$body.append(todoTotView.render().el);
 
 //Tot. Todo Done in Collection
-new TodoTotDoneView({
+var todoTotDoneView = new TodoTotDoneView({
     collection: todoList
-    //model: Todo
-}).render();
-
+});
+$body.append(todoTotDoneView.render().$el);
 
 log('Application End');
