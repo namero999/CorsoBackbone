@@ -4,7 +4,7 @@ log('Application started');
 
 var todoList = new TodoList([
     {title: "Fare da mangiare", done: false},
-    {title: "Pulire", done: false}
+    {title: "Pulire", done: true}
 ]);
 
 new InputView({
@@ -25,6 +25,7 @@ new TodoTotView({
 //Tot. Todo Done in Collection
 new TodoTotDoneView({
     collection: todoList
+    //model: Todo
 }).render();
 
 
