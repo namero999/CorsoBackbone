@@ -13,7 +13,7 @@ TodoTotDoneView = Backbone.View.extend({
 
         //new TodoView({'model': Todo } );
 
-        this.listenTo( this.model, 'change', this.render ); // Secondo modo
+        this.listenTo(this.model, 'change', this.render); // Secondo modo
 
     },
 
@@ -23,20 +23,20 @@ TodoTotDoneView = Backbone.View.extend({
         var totdones = this.collection.dones();
 
         /*
-                var result = this.collection.where({done: true} );
+         var result = this.collection.where({done: true} );
 
-                var collectionresult  = new TodoList(result);
+         var collectionresult  = new TodoList(result);
 
-                var totdone = collectionresult.size();
+         var totdone = collectionresult.size();
 
-                this.$el.text(  totdone );
-        */
+         this.$el.text(  totdone );
+         */
         //this.$el.text(  this.collection.where({done: true} );
 
         //var resultCollection = new InvoiceItemCollection(result);
 
 
-        this.$el.text(  totdones );
+        this.$el.text("Done: " + totdones);
 
         $('body').append(this.$el);
         log('TodoTotView Render End');

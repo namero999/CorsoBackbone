@@ -18,9 +18,10 @@ var todoListView = new TodoListView({
 todoListView.render();
 
 //Tot. Todo in Collection
-new TodoTotView({
+var todoTotView = new TodoTotView({
     collection: todoList
-}).render();
+});
+$('body').append(todoTotView.render().el);
 
 //Tot. Todo Done in Collection
 new TodoTotDoneView({
