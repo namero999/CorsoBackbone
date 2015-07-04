@@ -1,7 +1,9 @@
 Router = Backbone.Router.extend({
 
     routes: {
-        '': 'main'
+        '': 'main',
+        'toolshow/:id': 'toolShow',
+        'toolhide/:id': 'toolHide'
     },
 
     main: function() {
@@ -10,37 +12,59 @@ Router = Backbone.Router.extend({
         _.each(currentViews, function(view) {
             view.remove();
         });
-/*
-        var inputView = new InputView({
-            collection: todoList
-        }).render();
 
-        var todoTotView = new TodoTotView({
-            collection: todoList
-        });
-        $body.append(todoTotView.render().el);
-
-        var todoTotDoneView = new TodoTotDoneView({
-            collection: todoList
-        });
-        $body.append(todoTotDoneView.render().el);
-*/
         var inputView = new RicevutaNewView({
             collection: ricevutaListCollection
         }).render();
 
-        $('body').append(inputView.render().el);
+        $('.columnCenter').append(inputView.render().el);
 
         var ricevutaListView = new RicevutaListView({
             collection: ricevutaListCollection
         });
 
-        $('body').append(ricevutaListView.render().el);
+        //$('body').append(ricevutaListView.render().el);
+        $('.columnCenter').append(ricevutaListView.render().el);
 
-       // currentViews = [inputView, todoTotView, todoTotDoneView, todoListView];
+        currentViews = [inputView, ricevutaListView];
+
+        // currentViews = [inputView, todoTotView, todoTotDoneView, todoListView];
+        $('#myModal').modal('show')
+
+    },
+
+    toolShow: function(id) {
+        _.each(currentViews, function(view) {
+            view.remove();
+        });
+
+        log('Route edit ' + id);
+
+        var ricevutaToolInLineView = new RicevutaToolInLineView({
+            model: ricevutaListCollection.get(id)
+        });
+
+        $('.description').append(ricevutaToolInLineView.render().el);
+
+        currentViews = [ricevutaToolInLineView];
 
     }
+/*
+    toolHide: function(id) {
 
+        log('Route edit ' + id);
+
+
+        var ricevutaToolInLineView = new RicevutaToolInLineView({
+            model: ricevutaListCollection.get(id)
+        });
+
+        $('.description').append(ricevutaToolInLineView.render().el);
+
+        //currentViews = [todoEditView];
+
+    }
+*/
 
 
 });

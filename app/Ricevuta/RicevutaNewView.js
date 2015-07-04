@@ -28,7 +28,7 @@ RicevutaNewView = Backbone.View.extend({
         var $amount = this.$('#amount').val();
         var $date = this.$('#date').val();
 
-        this.collection.add( {descrizione: $description, id: generateId() , importo: $amount, date: $date} );
+        this.collection.add( {id: generateId(), descrizione: $description,  importo: $amount, date: $date} );
 
         log('Ricevuta aggiunta');
 

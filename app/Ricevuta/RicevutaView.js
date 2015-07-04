@@ -1,30 +1,43 @@
 RicevutaView = Backbone.View.extend({
 
-    tagName: 'li',
+    tagName: 'tr',
     template: _.template($('#ricevutaTemplate').text()),
 
     initialize: function() {
         this.listenTo(this.model, 'change', this.render);
-        log('TodoView created');
+        log('RicevutaView created');
     },
 
     events: {
-        'change input': 'onDone',
-        'click img.delete': 'onDelete',
-        'click img.edit': 'onEdit'
+        //'click img.edit': 'onEdit',
+        //'mouseover td': 'onToolShow',
+        'mouseenter .description': 'onToolShow',
+        'mouseleave   .description': 'onToolHide',
+        'click   .toolbar-delete': 'onDelete'
     },
 
-    onEdit: function() {
-        router.navigate('edit/' + this.model.id, {trigger: true});
+    onToolShow: function(e) {
+        log('evento toolShow ');
+
+        var ricevutaToolInLineView = new RicevutaToolInLineView({
+            model: this.model
+        });
+
+        currentToolsView = ricevutaToolInLineView;
+
+        this.$('.description').append(ricevutaToolInLineView.render().el);
+    },
+    onToolHide: function(e) {
+        log('evento toolHiden ');
+
+        currentToolsView.remove();
+
+        log(e);
     },
 
     onDelete: function() {
         this.model.collection.remove(this.model);
         this.remove();
-    },
-
-    onDone: function(e) {
-        this.model.set('done', e.target.checked);
     },
 
     render: function() {

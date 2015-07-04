@@ -4,33 +4,107 @@
     <meta charset="UTF-8">
     <title>Todo List app</title>
     <link rel="stylesheet" href="app.css"/>
+    <link href="bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
 <h1>Ricevute</h1>
+
+
+<div class="container">
+    <div class="row">
+        <!--                                   COLUMN LEFT                                     -->
+        <div class="columnLeft col-xs-12 col-sm-3 col-md-2 col-lg-2   col-xs-push-0 col-sm-push-0 col-md-push-0 col-lg-push-0 ">
+            COLUMN LEFT
+        </div>
+
+        <!--                                   COLUMN CENTER                                     -->
+        <div class="columnCenter col-xs-12 col-sm-6 col-md-8 col-lg-8  col-xs-push-0 col-sm-push-0 col-md-push-0 col-lg-push-0">
+           COLUMN CENTER
+           <div class="flash-notice alert alert-success">  </div>
+        </div>
+
+        <!--                                   COLUMN CENTER                                     -->
+        <div class="columnRight01 col-xs-12 col-sm-3 col-md-2 col-lg-2 col-lg-offset-0    col-xs-pull-0 col-sm-pull-0 col-md-push-0 col-lg-push-0">
+            COLUMN RIGHT-01
+            <div class="columnRight1">        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script type="text/template" id="toolsTemplate">
+    <div class="toolbar">
+        <span><img class="toolbar-delete" src="https://cdn2.iconfinder.com/data/icons/vaga/trash.png"/></span>
+        <span><img class="tools" src="https://cdn2.iconfinder.com/data/icons/vaga/trash.png"/></span>
+    </div>
+</script>
+
+
 
 <script type="text/template" id="ricevutaNewTemplate">
     <input id="description" type="text" /> - <input id="amount" type="text" /> - <input id="date" type="date" />
     <button class="button">Aggiungi</button>
 </script>
 
+<script type="text/template" id="ricevutaTable">
+    <table id="condominum-search-list">
+        <thead>
+        <tr>
+            <th>Numero</th>
+            <th>Descrizione</th>
+            <th>Importo</th>
+            <th>Data</th>
+            <th>&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+</script>
+
+
 <script type="text/template" id="ricevutaTemplate">
-    <p><%- descrizione %> -  <span><%- importo %></span> - <span><%- date %></span>
+    <!--<p><%- descrizione %> -  <span><%- importo %></span> - <span><%- date %></span>
         <span><img class="delete" src="https://cdn2.iconfinder.com/data/icons/vaga/trash.png"/></span>
         <span><img class="edit"   src="http://docs.colabolo.com/docs/download/attachments/2065185/icon_edit_small.png"/></p>
+-->
+
+        <!-- {% for condominium in condominiums %} -->
+
+            <td class="number"><%- id %></td>
+            <td class="description"> <%- descrizione %> </td>
+            <td> <%- importo %> </td>
+            <td> <%- date %> </td>
+            <td>
+                <span><img class="edit"   src="http://docs.colabolo.com/docs/download/attachments/2065185/icon_edit_small.png"/>
+            </td>
+            <td>
+                <span><img class="delete" src="https://cdn2.iconfinder.com/data/icons/vaga/trash.png"/></span>
+            </td>
+
+        <!-- {% endfor %} -->
+
 </script>
+<!-- </tbody> -->
+<!--</table>-->
+
 
 
 <script type="application/javascript" src="lib/jquery.js"></script>
 <script type="application/javascript" src="lib/underscore.js"></script>
 <script type="application/javascript" src="lib/backbone.js"></script>
 <script type="application/javascript" src="app/Utils.js"></script>
-
 <!--Ricevute -->
 
 
 <script type="application/javascript" src="app/Ricevuta/RicevutaModel.js"></script>
 <script type="application/javascript" src="app/Ricevuta/RicevutaListCollection.js"></script>
+
+<script type="application/javascript" src="app/Ricevuta/RicevutaToolInLineView.js"></script>
 
 <script type="application/javascript" src="app/Ricevuta/RicevutaNewView.js"></script>
 <script type="application/javascript" src="app/Ricevuta/RicevutaView.js"></script>
