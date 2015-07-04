@@ -11,4 +11,33 @@ var todoList = new TodoList([
 var router = new Router();
 Backbone.history.start({pushState: false});
 
-log('Application End');
+log('Todo - Application End');
+
+var boards = new Boards();
+var boardView = new BoardView({
+    collection: boards
+});
+
+boards.fetch({
+    success: function() { log('boards loaded successfully'); },
+    error: function() { log('error loading boards'); },
+    reset: true
+});
+
+//boards.fetch({
+//
+//    success: function() {
+//        log('Success! Boards in collection: ', boards.length);
+//        var boardmodel = boards.at(1);
+//        boardmodel.fetch({
+//            success: function() {
+//                log('Model loaded successfully');
+//            }
+//        });
+//    },
+//
+//    error: function() {
+//        log('Error :(');
+//    }
+//
+//});
