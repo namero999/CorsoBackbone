@@ -29,21 +29,3 @@ boards.fetch({
     },
     reset: true
 });
-
-//boards.fetch({
-//
-//    success: function() {
-//        log('Success! Boards in collection: ', boards.length);
-//        var boardmodel = boards.at(1);
-//        boardmodel.fetch({
-//            success: function() {
-//                log('Model loaded successfully');
-//            }
-//        });
-//    },
-//
-//    error: function() {
-//        log('Error :(');
-//    }
-//
-//});
