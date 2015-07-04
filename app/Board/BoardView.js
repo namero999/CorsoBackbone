@@ -2,9 +2,9 @@ BoardView = Backbone.View.extend({
 
     tagName: 'li',
 
-    events: {
-        'click': 'doDestroy'
-    },
+    //events: {
+    //    'click': 'doDestroy'
+    //},
 
     doDestroy: function() {
         this.model.destroy();
