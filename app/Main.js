@@ -14,13 +14,19 @@ Backbone.history.start({pushState: false});
 log('Todo - Application End');
 
 var boards = new Boards();
-var boardView = new BoardView({
+var boardListView = new BoardListView({
     collection: boards
 });
 
 boards.fetch({
-    success: function() { log('boards loaded successfully'); },
-    error: function() { log('error loading boards'); },
+    success: function() {
+        $body.append(boardListView.el);
+        log('boards loaded successfully');
+    },
+    error: function() {
+        $body.append("<div>Errore nel caricare la lista dei board</div>");
+        //alert("Qualcosa e' andato storto..");
+    },
     reset: true
 });
 
