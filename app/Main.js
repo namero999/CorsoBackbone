@@ -20,8 +20,9 @@ var boardListView = new BoardListView({
 
 boards.fetch({
     success: function() {
+
         $body.append(boardListView.el);
-        log('boards loaded successfully');
+
     },
     error: function() {
         $body.append("<div>Errore nel caricare la lista dei board</div>");
@@ -29,7 +30,3 @@ boards.fetch({
     },
     reset: true
 });
-
-var newboard = new Board({name: "Nuovo 22"});
-boards.add(newboard);
-$.post(newboard.url(), {name: newboard.get('name')});
